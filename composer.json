@@ -1,0 +1,15 @@
+{
+    "name": "xait/conv-office",
+    "description": "Document conversion with the MSOffice assemblies",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Arne Trodahl",
+            "email": "arne.trodahl@xait.com"
+        }
+    ],
+    "require": {
+
+    }
+}
