@@ -8,19 +8,14 @@ namespace OfficeConverter
 {
     class Converter
     {
-
-
         static void Main(string[] args)
         {
-
             try
             {
-
                 validateArguments(args);
 
-                var outFormat = args[1];
                 var inFile = new System.IO.FileInfo(args[0]);
-                var outFile = new System.IO.FileInfo(System.IO.Path.ChangeExtension(inFile.FullName, outFormat));
+                var outFile = new System.IO.FileInfo(args[1]);
 
                 var converter = new Converter();
                 converter.convert(inFile, outFile);
@@ -49,9 +44,18 @@ namespace OfficeConverter
                 throw new ArgumentException("Not enough arguments");
             }
 
-            if (!System.IO.File.Exists(args[0]))
+            var inFilePath = args[0];
+            var outFilePath = args[1];
+            
+            if (!System.IO.File.Exists(inFilePath))
             {
-                throw new ArgumentException(String.Format("Input file [{0}] does not exist", args[0]));
+                throw new ArgumentException(String.Format("Input file [{0}] does not exist", inFilePath));
+            }
+            
+            var outDirectory = System.IO.Path.GetDirectoryName(outFilePath);
+            if (!System.IO.Directory.Exists(outDirectory))
+            {
+                throw new ArgumentException(String.Format("Output directory [{0}] does not exist", outDirectory));
             }
         }
 
