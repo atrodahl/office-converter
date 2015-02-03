@@ -63,7 +63,7 @@ namespace OfficeConverter
         {
             Console.WriteLine(message);
             Console.WriteLine();
-            Console.WriteLine("converter <in file> <out format>");
+            Console.WriteLine("converter <in file> <out file>");
         }
 
         private void convert(System.IO.FileInfo inFile, System.IO.FileInfo outFile)
